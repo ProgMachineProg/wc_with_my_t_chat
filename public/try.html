@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>Перевірка чату</title>
+  <style>
+    body { font-family: "Segoe UI", sans-serif; background: #24170f; color: #f6ead8; margin: 24px; }
+    label { display: block; margin: 10px 0 4px; }
+    input { width: min(420px, 100%); padding: 8px; }
+    button { margin-top: 12px; padding: 8px 14px; }
+    iframe { margin-top: 18px; width: min(760px, 100%); height: 520px; border: 0; background: #6a8f63; }
+    p { max-width: 640px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <h1>Локальна перевірка</h1>
+  <p>Сюди можна писати як у чат Twitch. В оверлеї внизу зелений фон тільки на цій сторінці, в OBS фон прозорий.</p>
+  <form id="form">
+    <label>Нік</label>
+    <input id="user" value="your_twitch_nick">
+    <label>Повідомлення</label>
+    <input id="text" placeholder="cstart, 1, 2, 3, coff">
+    <button type="submit">Надіслати</button>
+  </form>
+  <iframe src="/overlay" title="Оверлей"></iframe>
+  <script>
+    document.querySelector("#form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      await fetch("/dev/chat", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          user: document.querySelector("#user").value,
+          text: document.querySelector("#text").value,
+        }),
+      });
+      document.querySelector("#text").value = "";
+    });
+  </script>
+</body>
+</html>

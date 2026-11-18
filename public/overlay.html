@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оверлей</title>
+  <link rel="stylesheet" href="/overlay.css?v=dark">
+</head>
+<body>
+  <main id="card" class="card">
+    <section id="idle" class="idle">
+      <div class="kicker">Оверлей на місці</div>
+      <div class="idle-title">Чекаю cstart</div>
+    </section>
+    <section id="live" hidden>
+      <header class="top">
+        <div>
+          <div class="kicker" id="scenario"></div>
+          <div class="clock" id="clock">1:00</div>
+        </div>
+        <div class="waves" id="waves">0<span>/20</span></div>
+      </header>
+      <div class="timebar"><span id="timefill"></span></div>
+      <ol id="options" class="options"></ol>
+      <section id="active" class="active">
+        <div class="active-label">Зараз</div>
+        <div id="active-text">—</div>
+      </section>
+    </section>
+  </main>
+  <script src="/overlay.js?v=dark"></script>
+</body>
+</html>

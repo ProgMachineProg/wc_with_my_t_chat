@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  background: transparent;
+  color: #f2f4f2;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.card {
+  position: relative;
+  width: calc(100% - 12px);
+  max-width: 100%;
+  margin: 6px;
+  padding: 16px 18px 14px;
+  border-radius: 3px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(40, 80, 52, 0.35), transparent 55%),
+    linear-gradient(180deg, #102018 0%, #0a1610 42%, #07110c 100%);
+  border: 4px solid #141414;
+  box-shadow:
+    inset 0 0 0 1px #6a6256,
+    inset 0 0 0 3px #0c0c0c,
+    0 0 0 1px #000,
+    0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.idle-title {
+  margin-top: 4px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #f2c14b;
+}
+
+.kicker {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f4f6f4;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin: 0 0 8px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid rgba(232, 196, 96, 0.28);
+}
+
+.clock {
+  font-size: 48px;
+  line-height: 0.95;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: #f7f7f5;
+}
+
+.waves {
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: #f2c14b;
+}
+
+.waves span {
+  color: #f2c14b;
+}
+
+.timebar {
+  width: 100%;
+  height: 6px;
+  margin: 0 0 12px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+.timebar span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #c9922e, #f2c14b);
+}
+
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  padding: 8px 4px;
+  border-radius: 2px;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.option.lead .text,
+.option.lead .num {
+  color: #f2c14b;
+}
+
+.option.flash,
+.active.flash {
+  animation: pop 0.7s ease;
+}
+
+@keyframes pop {
+  0% { background-color: rgba(242, 193, 75, 0.28); }
+  100% { background-color: transparent; }
+}
+
+.num {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #4da3ff;
+  background: none;
+  position: relative;
+  z-index: 1;
+}
+
+.fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: rgba(77, 163, 255, 0.16);
+}
+
+.text, .votes {
+  position: relative;
+  z-index: 1;
+}
+
+.text {
+  min-width: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.28;
+  color: #f4f6f4;
+  overflow-wrap: anywhere;
+}
+
+.votes {
+  min-width: 2ch;
+  font-size: 30px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: #f2c14b;
+}
+
+.active {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin: 12px -18px -14px;
+  padding: 12px 18px;
+  border-top: 1px solid rgba(232, 196, 96, 0.35);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.active-label {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: #4da3ff;
+  margin: 0;
+}
+
+#active-text {
+  min-height: 1.3em;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #f2c14b;
+  text-align: right;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "wc-chat-overlay",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Локальний оверлей голосування чату Twitch для Warcraft III",
+  "scripts": {
+    "start": "node src/server.js",
+    "check": "node src/selfcheck.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "tmi.js": "^1.8.5",
+    "ws": "^8.18.3"
+  }
+}
