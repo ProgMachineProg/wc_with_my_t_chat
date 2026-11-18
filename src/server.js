@@ -17,6 +17,7 @@ function loadConfig() {
     channel: String(raw.channel || "").trim(),
     admins: (raw.admins || []).map((name) => String(name).trim().toLowerCase()).filter(Boolean),
     port: Number(raw.port) || 3000,
+    host: String(raw.host || "127.0.0.1").trim() || "127.0.0.1",
   };
 }
 
@@ -109,9 +110,9 @@ setInterval(() => {
   }
 }, 200);
 
-server.listen(config.port, "127.0.0.1", () => {
-  console.log(`Оверлей: http://127.0.0.1:${config.port}/overlay`);
-  console.log(`Перевірка: http://127.0.0.1:${config.port}/try`);
+server.listen(config.port, config.host, () => {
+  console.log(`Оверлей: http://${config.host}:${config.port}/overlay`);
+  console.log(`Перевірка: http://${config.host}:${config.port}/try`);
   if (!config.channel) console.log("У config.json порожній channel, чат Twitch не слухаю.");
   if (config.admins.length === 0 || config.admins.includes("your_twitch_nick")) {
     console.log("У config.json вкажи свій нік в admins, інакше cstart і coff ніхто не увімкне.");
