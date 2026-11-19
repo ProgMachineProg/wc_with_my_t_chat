@@ -10,7 +10,7 @@ const activeText = document.querySelector("#active-text");
 
 let state = { running: false };
 let endsAt = null;
-const ROUND_MS = 180000;
+const ROUND_MS = 120000;
 let durationMs = ROUND_MS;
 let previousVotes = [];
 let previousActive = null;

@@ -1,4 +1,4 @@
-const ROUND_MS = 3 * 60 * 1000;
+const ROUND_MS = 2 * 60 * 1000;
 const WAVE_GOAL = 10;
 
 function emptyCounts() {

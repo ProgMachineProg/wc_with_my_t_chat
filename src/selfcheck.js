@@ -56,7 +56,7 @@ if (parseChat("2").choice !== 2) throw new Error("голос");
 if (parseChat("привіт")) throw new Error("зайвий розбір");
 if (parseChat("13")) throw new Error("13 зарахувалося");
 
-if (ROUND_MS !== 180000) throw new Error("не 3 хвилини");
+if (ROUND_MS !== 120000) throw new Error("не 2 хвилини");
 if (WAVE_GOAL !== 10) throw new Error("не 10 хвиль");
 
 console.log("ok");
