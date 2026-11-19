@@ -10,7 +10,7 @@ const activeText = document.querySelector("#active-text");
 
 let state = { running: false };
 let endsAt = null;
-const ROUND_MS = 60000;
+const ROUND_MS = 180000;
 let durationMs = ROUND_MS;
 let previousVotes = [];
 let previousActive = null;
@@ -42,7 +42,7 @@ function render() {
   goalEl.textContent = "/" + goal;
   wavesEl.append(goalEl);
   endsAt = state.endsAt;
-  durationMs = ROUND_MS;
+  durationMs = state.durationMs || ROUND_MS;
   const votes = state.options.map((option) => option.votes);
   const top = Math.max(0, ...votes);
   const leaders = votes.filter((count) => count === top && top > 0).length;
